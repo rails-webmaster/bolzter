@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Bolzter::VERSION
   spec.authors       = ["John"]
   spec.email         = ["rails.john.smith@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = "This gem supports an interface to Bolzter APIs"
+  spec.description   = "This gem supports an interface to Bolzter APIs"
   spec.homepage      = ""
   spec.license       = "MIT"
 
