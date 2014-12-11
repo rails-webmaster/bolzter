@@ -21,16 +21,20 @@ Or install it yourself as:
 ## Usage
 
 1. Setting API key
-	Bolzter::Bolzter.set_credentials("YOUR_USERNAME", "YOUR_API_KEY")
+
+```ruby
+Bolzter::Bolzter.set_credentials("YOUR_USERNAME", "YOUR_API_KEY")
+```
 
 	Output
-	=> {:username=>"YOUR_USERNAME", :api_key=>"YOUR_API_KEY"}
-
+```ruby
+=> {:username=>"YOUR_USERNAME", :api_key=>"YOUR_API_KEY"}
+```
 2. Getting users
-	Bolzter::Bolzter.users
+	$ Bolzter::Bolzter.users
 
 	Output
-	=> {"meta"=>{"limit"=>20, "next"=>nil, "offset"=>0, "previous"=>nil, "total_count"=>1}, "objects"=>[{"email"=>"user@example.com", "first_name"=>"Test", "id"=>12, "last_login"=>"2014-07-14T12:15:22", "last_name"=>"User", "resource_uri"=>"/api/v2.1/user/12/"}]}
+	$ => {"meta"=>{"limit"=>20, "next"=>nil, "offset"=>0, "previous"=>nil, "total_count"=>1}, "objects"=>[{"email"=>"user@example.com", "first_name"=>"Test", "id"=>12, "last_login"=>"2014-07-14T12:15:22", "last_name"=>"User", "resource_uri"=>"/api/v2.1/user/12/"}]}
 
 3. Getting a user
 	Bolzter::Bolzter.user(id)
