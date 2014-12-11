@@ -20,38 +20,47 @@ Or install it yourself as:
 
 ## Usage
 
-1. Setting API key
+##1. Setting API key
 
 ```ruby
 Bolzter::Bolzter.set_credentials("YOUR_USERNAME", "YOUR_API_KEY")
 ```
 
-	Output
+Output
+
 ```ruby
 => {:username=>"YOUR_USERNAME", :api_key=>"YOUR_API_KEY"}
 ```
-2. Getting users
+
+
+##2. Getting users
+
+```ruby
 	$ Bolzter::Bolzter.users
+```
 
-	Output
+Output
+
+```ruby
 	$ => {"meta"=>{"limit"=>20, "next"=>nil, "offset"=>0, "previous"=>nil, "total_count"=>1}, "objects"=>[{"email"=>"user@example.com", "first_name"=>"Test", "id"=>12, "last_login"=>"2014-07-14T12:15:22", "last_name"=>"User", "resource_uri"=>"/api/v2.1/user/12/"}]}
+```
 
-3. Getting a user
+##3. Getting a user
 	Bolzter::Bolzter.user(id)
 
-4. Getting campaigns
+##4. Getting campaigns
 	Bolzter::Bolzter.campaigns
 
-5. Getting a campaign
+##5. Getting a campaign
 	Bolzter::Bolzter.campaign
 
-6. Getting persons
+##6. Getting persons
 	Bolzter::Bolzter.persons
 
-7. Getting a person
+##7. Getting a person
 	Bolzter::Bolzter.person(id)
 
-8. Updating a person
+##8. Updating a person
 	params = {
 				"first_name" 	=> "NewFName",
 				"last_name" 	=> "NewLName",
@@ -59,10 +68,10 @@ Bolzter::Bolzter.set_credentials("YOUR_USERNAME", "YOUR_API_KEY")
 			}
 	Bolzter::Bolzter.update_person(id, params)
 
-9. Deleting a person
+##9. Deleting a person
 	Bolzter::Bolzter.delete_person(id)
 
-10. Creating a lead
+##10. Creating a lead
 	params = {
 				"first_name" 	=> "fName",
 				"last_name" 	=> "lName",
