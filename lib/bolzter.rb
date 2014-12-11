@@ -2,7 +2,7 @@ require "bolzter/version"
 require 'uri'
 require 'net/http'
 require 'json'
-require 'json/ext'
+require 'yaml'
 
 module Bolzter
 	class Bolzter
@@ -17,6 +17,16 @@ module Bolzter
 			@@username = username
 			@@api_key = api_key
 			{:username => username, :api_key => api_key}
+		end
+
+		def self.set_credentials
+			conf_file = File.join(Rails.root, 'config', 'bolzter.yml').to_s
+			if File.exists?(conf_file)
+				config = YAML.load_file(conf_file)
+				self.set_credentials(config["username"], config["api_key"])
+			else
+				puts "conf/bolzter.yml file does not exist. Please copy bolzter.yml.example file."
+			end
 		end
 
 		# => Creating uri path
