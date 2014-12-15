@@ -8,12 +8,12 @@ Gem::Specification.new do |spec|
   spec.version       = Bolzter::VERSION
   spec.authors       = ["John"]
   spec.email         = ["rails.john.smith@gmail.com"]
-  spec.summary       = "This gem supports an interface to Bolzter APIs"
+  spec.summary       = "Interface to Bolzter APIs"
   spec.description   = "This gem supports an interface to Bolzter APIs"
   spec.homepage      = ""
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0")
+  spec.files         = ["Gemfile", "LICENSE.txt", "README.md", "Rakefile", "bolzter.gemspec", "lib/bolzter.rb", "lib/bolzter/version.rb"]
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]

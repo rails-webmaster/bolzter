@@ -23,7 +23,9 @@ module Bolzter
 			conf_file = File.join(Rails.root, 'config', 'bolzter.yml').to_s
 			if File.exists?(conf_file)
 				config = YAML.load_file(conf_file)
-				self.set_credentials(config["username"], config["api_key"])
+				@@username = config["username"]
+				@@api_key = config["api_key"]
+				{:username => @@username, :api_key => @@api_key}
 			else
 				puts "conf/bolzter.yml file does not exist. Please copy bolzter.yml.example file."
 			end
