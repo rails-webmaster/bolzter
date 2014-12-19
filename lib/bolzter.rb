@@ -13,19 +13,22 @@ module Bolzter
 		@@end_point = "user"
 
 		# => Set credential. It should be called before call APIs.
-		def self.set_credentials(username, api_key)
-			@@username = username
-			@@api_key = api_key
-			{:username => username, :api_key => api_key}
-		end
-
-		def self.set_credentials
-			conf_file = File.join(Rails.root, 'config', 'bolzter.yml').to_s
-			if File.exists?(conf_file)
-				config = YAML.load_file(conf_file)
-				self.set_credentials(config["username"], config["api_key"])
+		def self.set_credentials(*args)
+			if args.length < 2
+				conf_file = File.join(Rails.root, 'config', 'bolzter.yml').to_s
+				if File.exists?(conf_file)
+					config = YAML.load_file(conf_file)
+					self.set_credentials(config["username"], config["api_key"])
+				else
+					puts "conf/bolzter.yml file does not exist. Please copy bolzter.yml.example file."
+				end
+			elsif args.length == 2
+				@@username = args[0]
+				@@api_key = args[1]
+				{:username => @@username, :api_key => @@api_key}
 			else
-				puts "conf/bolzter.yml file does not exist. Please copy bolzter.yml.example file."
+				# To do:
+				puts "Invalid parameters."
 			end
 		end
 
